@@ -1,0 +1,21 @@
+int temp = 0;
+
+int counter;
+
+void setup()
+{
+  pinMode(A0, INPUT);
+  pinMode(13, OUTPUT);
+}
+
+void loop()
+{
+  temp = -40 + 0.488155 * (analogRead(A0) - 20);
+  if (temp > 32) {
+    for (counter = 0; counter < 10; ++counter) {
+      digitalWrite(13, HIGH);
+      digitalWrite(13, LOW);
+    }
+  }
+  delay(10); // Delay a little bit to improve simulation performance
+}
